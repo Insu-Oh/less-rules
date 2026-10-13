@@ -1,0 +1,209 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "2026-10-13.1",
+  "minAppVersion": "0.1.0",
+  "platforms": {
+    "youtube": {
+      "base": {
+        "hide": [],
+        "hideUi": [
+          "ytm-mealbar-promo-renderer",
+          "ytm-app-promo-renderer",
+          "a[href^=\"https://apps.apple.com/\"]",
+          "a[href^=\"https://itunes.apple.com/\"]",
+          "a[href^=\"https://play.google.com/store\"]",
+          "a[href^=\"vnd.youtube:\"]",
+          "ytm-button-renderer:has(> a[href^=\"vnd.youtube:\"])"
+        ],
+        "blockPaths": [],
+        "collapse": []
+      },
+      "features": {
+        "shorts": {
+          "hide": [
+            "ytm-shorts-lockup-view-model",
+            "ytm-shorts-lockup-view-model-v2",
+            "ytm-video-with-context-renderer:has(a[href^=\"/shorts/\"])",
+            "ytm-video-with-context-renderer:has(ytm-media-item.big-shorts-singleton)",
+            "ytm-compact-video-renderer:has(a[href^=\"/shorts/\"])"
+          ],
+          "hideUi": [
+            "ytm-rich-item-renderer:has(a[href^=\"/shorts/\"])",
+            "ytm-pivot-bar-item-renderer:has(.pivot-shorts)",
+            "ytm-reel-shelf-renderer",
+            "ytm-rich-section-renderer:has(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2, ytm-reel-shelf-renderer)",
+            "grid-shelf-view-model:has(ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2)",
+            "a[role=\"tab\"][href$=\"/shorts\"]"
+          ],
+          "blockPaths": [
+            {
+              "pattern": "^/shorts/([A-Za-z0-9_-]{6,})",
+              "redirect": "/watch?v=$1"
+            }
+          ],
+          "collapse": []
+        },
+        "home_feed": {
+          "hide": [],
+          "hideUi": [
+            "html[data-less-path=\"/\"] ytm-rich-grid-renderer",
+            "html[data-less-path=\"/\"] ytm-feed-filter-chip-bar-renderer",
+            "html[data-less-path=\"/\"] ytm-rich-section-renderer"
+          ],
+          "blockPaths": [],
+          "collapse": []
+        },
+        "related": {
+          "hide": [],
+          "hideUi": [
+            "ytm-single-column-watch-next-results-renderer .related-items-container",
+            "ytm-item-section-renderer[section-identifier=\"related-items\"]",
+            ".ytp-endscreen-content",
+            ".ytp-autonav-endscreen-countdown-overlay"
+          ],
+          "blockPaths": [],
+          "collapse": []
+        },
+        "ads": {
+          "hide": [],
+          "hideUi": [
+            "ytm-companion-slot",
+            "ytm-companion-ad-renderer",
+            "ad-slot-renderer",
+            "ytm-rich-item-renderer:has(ad-slot-renderer)",
+            "ytm-promoted-sparkles-web-renderer",
+            "ytm-promoted-sparkles-text-search-renderer",
+            "ytm-promoted-video-renderer",
+            "ytm-display-ad-renderer",
+            "ytm-in-feed-ad-layout-renderer",
+            "ytm-search-pyv-renderer",
+            ".ytp-ad-overlay-container",
+            ".ytp-ad-overlay-slot"
+          ],
+          "blockPaths": [],
+          "collapse": []
+        }
+      }
+    },
+    "instagram": {
+      "base": {
+        "hide": [],
+        "hideUi": [
+          "a[href*=\"applink.instagram.com\"]",
+          "a[href^=\"https://apps.apple.com/\"]",
+          "a[href^=\"https://itunes.apple.com/\"]",
+          "a[href^=\"https://play.google.com/store\"]",
+          "div._acc8._abpk",
+          "div._abpk:has(svg[aria-label=\"Close\"])",
+          "div._abpk:has(svg[aria-label=\"닫기\"])"
+        ],
+        "blockPaths": [],
+        "collapse": []
+      },
+      "features": {
+        "reels": {
+          "hide": [],
+          "hideUi": [
+            "a[href=\"/reels/\"]",
+            "a[href^=\"/reels/\"]",
+            "div:has(> span > div > a[href=\"/reels/\"])"
+          ],
+          "blockPaths": [
+            {
+              "pattern": "^/reels/?$",
+              "redirect": "/"
+            },
+            {
+              "pattern": "^/reels/([A-Za-z0-9_-]+)/?$",
+              "redirect": "/reel/$1/"
+            }
+          ],
+          "collapse": []
+        },
+        "feed_reels": {
+          "hide": [],
+          "hideUi": [],
+          "blockPaths": [],
+          "collapse": [
+            "html[data-less-path=\"/\"] article[data-less-unfollowed]:has(a[href*=\"/reel/\"])"
+          ]
+        },
+        "explore": {
+          "hide": [],
+          "hideUi": [
+            "html[data-less-path^=\"/explore\"] main a[href*=\"/p/\"]",
+            "html[data-less-path^=\"/explore\"] main a[href*=\"/reel/\"]",
+            "html[data-less-path=\"/explore/\"] [role=\"progressbar\"]",
+            "html[data-less-path=\"/explore/\"] svg[aria-label=\"Loading...\"]"
+          ],
+          "blockPaths": [],
+          "collapse": []
+        },
+        "ads": {
+          "hide": [],
+          "hideUi": [
+            "[data-less-adreel] > *"
+          ],
+          "blockPaths": [],
+          "collapse": [
+            "html[data-less-path=\"/\"] article[data-less-ad]"
+          ]
+        },
+        "suggested": {
+          "hide": [],
+          "hideUi": [],
+          "blockPaths": [],
+          "collapse": [
+            "html[data-less-path=\"/\"] article[data-less-suggested]"
+          ]
+        },
+        "suggested_reels": {
+          "hide": [
+            "html[data-less-igviewer] [data-less-suggested-reel]"
+          ],
+          "hideUi": [],
+          "blockPaths": [],
+          "collapse": []
+        }
+      }
+    },
+    "x": {
+      "base": {
+        "hide": [],
+        "hideUi": [
+          "a[href*=\"download-the-x-app\"]",
+          "a[href^=\"https://apps.apple.com/\"]",
+          "a[href^=\"https://itunes.apple.com/\"]",
+          "a[href^=\"https://play.google.com/store\"]"
+        ],
+        "blockPaths": [],
+        "collapse": []
+      },
+      "features": {
+        "explore": {
+          "hide": [],
+          "hideUi": [
+            "html[data-less-path^=\"/explore\"] [data-testid=\"primaryColumn\"] section",
+            "html[data-less-path^=\"/explore\"] [data-testid=\"trend\"]"
+          ],
+          "blockPaths": [],
+          "collapse": []
+        }
+      }
+    },
+    "threads": {
+      "base": {
+        "hide": [],
+        "hideUi": [
+          "a[href*=\"applink.threads.com\"]",
+          "a[href^=\"https://apps.apple.com/\"]",
+          "a[href^=\"https://itunes.apple.com/\"]",
+          "a[href^=\"https://play.google.com/store\"]"
+        ],
+        "blockPaths": [],
+        "collapse": []
+      },
+      "features": {}
+    }
+  }
+}
