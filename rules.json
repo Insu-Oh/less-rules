@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesVersion": "2026-10-13.1",
+  "rulesVersion": "2026-10-13.3",
   "minAppVersion": "0.1.0",
   "platforms": {
     "youtube": {
@@ -13,7 +13,12 @@
           "a[href^=\"https://itunes.apple.com/\"]",
           "a[href^=\"https://play.google.com/store\"]",
           "a[href^=\"vnd.youtube:\"]",
-          "ytm-button-renderer:has(> a[href^=\"vnd.youtube:\"])"
+          "ytm-button-renderer:has(> a[href^=\"vnd.youtube:\"])",
+          "a[href*=\"itc_campaign=\"]",
+          "button-view-model:has(> a[href*=\"itc_campaign=\"])",
+          "ytm-button-renderer:has(> a[href*=\"itc_campaign=\"])",
+          "a[href*=\"_open_app\"]",
+          "ytm-button-renderer:has(> a[href*=\"_open_app\"])"
         ],
         "blockPaths": [],
         "collapse": []
@@ -154,7 +159,8 @@
           "hideUi": [],
           "blockPaths": [],
           "collapse": [
-            "html[data-less-path=\"/\"] article[data-less-suggested]"
+            "html[data-less-path=\"/\"] article[data-less-suggested]",
+            "html[data-less-path=\"/\"] article[data-less-unfollowed]:not([data-less-ad]):not(:has(a[href*=\"/reel/\"]))"
           ]
         },
         "suggested_reels": {
