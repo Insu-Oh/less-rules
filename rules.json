@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesVersion": "2026-10-13.3",
+  "rulesVersion": "2026-10-16.1",
   "minAppVersion": "0.1.0",
   "platforms": {
     "youtube": {
@@ -160,7 +160,9 @@
           "blockPaths": [],
           "collapse": [
             "html[data-less-path=\"/\"] article[data-less-suggested]",
-            "html[data-less-path=\"/\"] article[data-less-unfollowed]:not([data-less-ad]):not(:has(a[href*=\"/reel/\"]))"
+            "html[data-less-path=\"/\"] article[data-less-unfollowed]:not([data-less-ad]):not(:has(a[href*=\"/reel/\"]))",
+            "html[data-less-path=\"/\"] main article ~ :not(article):has(a[href*=\"/explore/people\"])",
+            "html[data-less-path=\"/\"] main :not(article):has(a[href*=\"/explore/people\"]):has(~ article)"
           ]
         },
         "suggested_reels": {
